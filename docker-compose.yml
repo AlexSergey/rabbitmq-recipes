@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  rmq-recipes:
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - "RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME}"
+      - "RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}"
