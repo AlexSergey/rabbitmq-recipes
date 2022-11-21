@@ -8,7 +8,7 @@ dotenv.config({ path: resolve(__dirname, '../../.env') });
 
 const run = async () => {
 	try {
-    const connection = await connect(`amqp://${process.env.RABBITMQ_USERNAME}:${process.env.RABBITMQ_PASSWORD}@localhost`);
+    const connection = await connect(`amqp://${process.env.AMQP_USERNAME}:${process.env.AMQP_PASSWORD}@localhost`);
 		const channel = await connection.createChannel();
 		await channel.assertExchange(EXCHANGE, 'topic', { durable: true });
     // '' - if we set empty string the topic name will generate automatically
